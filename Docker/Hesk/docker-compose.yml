@@ -1,0 +1,24 @@
+version: '3'
+
+services:
+  heskweb:
+    build: 
+        context: .
+        dockerfile: hesk.Dockerfile
+    container_name: heskweb
+    ports:
+      - "80:80"
+    networks:
+      - hesk
+
+  heskdb:
+    image: mariadb:11.3.2
+    container_name: heskdb
+    networks:
+      - hesk
+    environment:
+      MYSQL_ROOT_PASSWORD: "123456"
+
+networks:
+  hesk:
+    driver: bridge

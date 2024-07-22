@@ -1,0 +1,74 @@
+=============== Nov 3, 2023 (UTC) ===============
+11:22:20.189692 log@legend F·NumFile S·FileSize N·Entry C·BadEntry B·BadBlock Ke·KeyError D·DroppedEntry L·Level Q·SeqNum T·TimeElapsed
+11:22:20.195160 db@open opening
+11:22:20.196438 version@stat F·[] S·0B[] Sc·[]
+11:22:20.198226 db@janitor F·2 G·0
+11:22:20.198240 db@open done T·3.069093ms
+11:22:21.556000 memdb@flush N·46 S·1KiB
+11:22:21.557920 memdb@flush created L0@3 N·46 S·597B "\ndb..ion,v46":"\nla..ime,v19"
+11:22:21.557940 version@stat F·[1] S·597B[597B] Sc·[0.25]
+11:22:21.559718 memdb@flush committed F·1 T·3.695624ms
+11:22:21.559745 journal@remove removed @1
+11:22:21.559766 table@compaction range L-1 "":""
+11:22:21.559786 table@compaction L0·1 -> L1·0 S·597B Q·46
+11:22:21.561845 table@build created L1@4 N·4 S·207B "\ndb..ion,v46":"\nla..ime,v19"
+11:22:21.561911 version@stat F·[0 1] S·207B[0B 207B] Sc·[0.00 0.00]
+11:22:21.563865 table@compaction committed F~ S-390B Ke·0 D·42 T·4.05612ms
+11:22:21.564168 table@remove removed @3
+11:24:28.665925 db@close closing
+11:24:28.666142 db@close done T·215.01µs
+=============== Nov 3, 2023 (UTC) ===============
+11:24:35.233151 log@legend F·NumFile S·FileSize N·Entry C·BadEntry B·BadBlock Ke·KeyError D·DroppedEntry L·Level Q·SeqNum T·TimeElapsed
+11:24:35.233378 version@stat F·[0 1] S·207B[0B 207B] Sc·[0.00 0.00]
+11:24:35.233406 db@open opening
+11:24:35.233486 journal@recovery F·1
+11:24:35.234689 journal@recovery recovering @2
+11:24:35.240027 memdb@flush created L0@5 N·9 S·341B "\x04de..can,v54":"\npr..ion,v47"
+11:24:35.240667 version@stat F·[1 1] S·548B[341B 207B] Sc·[0.25 0.00]
+11:24:35.285735 db@janitor F·4 G·0
+11:24:35.285800 db@open done T·52.381921ms
+11:29:36.995695 db@close closing
+11:29:36.996388 db@close done T·695.52µs
+=============== Nov 3, 2023 (UTC) ===============
+11:30:53.846041 log@legend F·NumFile S·FileSize N·Entry C·BadEntry B·BadBlock Ke·KeyError D·DroppedEntry L·Level Q·SeqNum T·TimeElapsed
+11:30:53.846955 version@stat F·[1 1] S·548B[341B 207B] Sc·[0.25 0.00]
+11:30:53.846980 db@open opening
+11:30:53.847057 journal@recovery F·1
+11:30:53.848128 journal@recovery recovering @6
+11:30:53.851440 memdb@flush created L0@8 N·12 S·347B "\x04de..can,v57":"\t\x00\x00\x00\x02,v66"
+11:30:53.852119 version@stat F·[2 1] S·895B[688B 207B] Sc·[0.50 0.00]
+11:30:53.860830 db@janitor F·5 G·0
+11:30:53.860885 db@open done T·13.893066ms
+13:20:11.472316 db@close closing
+13:20:11.473069 db@close done T·750.283µs
+=============== Nov 3, 2023 (UTC) ===============
+17:05:58.943485 log@legend F·NumFile S·FileSize N·Entry C·BadEntry B·BadBlock Ke·KeyError D·DroppedEntry L·Level Q·SeqNum T·TimeElapsed
+17:05:58.944019 version@stat F·[2 1] S·895B[688B 207B] Sc·[0.50 0.00]
+17:05:58.944037 db@open opening
+17:05:58.944076 journal@recovery F·1
+17:05:58.945787 journal@recovery recovering @9
+17:05:58.957111 memdb@flush created L0@11 N·5 S·209B "\x04de..can,v73":"\x04mn..can,v70"
+17:05:58.957452 version@stat F·[3 1] S·1KiB[897B 207B] Sc·[0.75 0.00]
+17:05:58.989800 db@janitor F·6 G·0
+17:05:58.989866 db@open done T·45.818188ms
+=============== Nov 6, 2023 (UTC) ===============
+11:23:13.206159 log@legend F·NumFile S·FileSize N·Entry C·BadEntry B·BadBlock Ke·KeyError D·DroppedEntry L·Level Q·SeqNum T·TimeElapsed
+11:23:13.206693 version@stat F·[3 1] S·1KiB[897B 207B] Sc·[0.75 0.00]
+11:23:13.206705 db@open opening
+11:23:13.206743 journal@recovery F·1
+11:23:13.207761 journal@recovery recovering @12
+11:23:13.209994 memdb@flush created L0@14 N·10 S·280B "\x04de..can,v85":"\x04mn..can,v77"
+11:23:13.210288 version@stat F·[4 1] S·1KiB[1KiB 207B] Sc·[1.00 0.00]
+11:23:13.216824 db@janitor F·7 G·0
+11:23:13.216847 db@open done T·10.136713ms
+11:23:13.216885 table@compaction L0·4 -> L1·1 S·1KiB Q·86
+11:23:13.222497 table@build created L1@17 N·18 S·505B "\x04de..can,v85":"\npr..ion,v47"
+11:23:13.222520 version@stat F·[0 1] S·505B[0B 505B] Sc·[0.00 0.00]
+11:23:13.224375 table@compaction committed F-4 S-879B Ke·0 D·22 T·7.472294ms
+11:23:13.224429 table@remove removed @11
+11:23:13.224456 table@remove removed @8
+11:23:13.224475 table@remove removed @5
+11:23:13.224493 table@remove removed @4
+=============== Nov 10, 2023 (UTC) ===============
+18:26:08.067921 db@close closing
+18:26:08.070046 db@close done T·2.473345ms

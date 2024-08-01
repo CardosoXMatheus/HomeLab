@@ -3,32 +3,40 @@ services:
     restart: unless-stopped
     image: mysql:8.0
     hostname: mysql
+    secrets:
+      - sql-pass
     volumes:
       - semaphore-mysql:/var/lib/mysql
     environment:
       MYSQL_RANDOM_ROOT_PASSWORD: 'yes'
       MYSQL_DATABASE: semaphore
       MYSQL_USER: semaphore
-      MYSQL_PASSWORD: semaphore
+      MYSQL_PASSWORD_FILE: /run/secrets/sql-pass 
+    networks:
+      - ansible
+      
   semaphore:
     restart: unless-stopped
     ports:
       - 3000:3000
     image: semaphoreui/semaphore:latest
+    secrets:
+      - admin-pass
+      - db-pass
     environment:
       SEMAPHORE_DB_USER: semaphore
-      SEMAPHORE_DB_PASS: semaphore
-      SEMAPHORE_DB_HOST: mysql # for postgres, change to: postgres
-      SEMAPHORE_DB_PORT: 3306 # change to 5432 for postgres
-      SEMAPHORE_DB_DIALECT: mysql # for postgres, change to: postgres
+      SEMAPHORE_DB_PASS_FILE: /run/secrets/db-pass
+      SEMAPHORE_DB_HOST: mysql 
+      SEMAPHORE_DB_PORT: 3306
+      SEMAPHORE_DB_DIALECT: mysql
       SEMAPHORE_DB: semaphore
       SEMAPHORE_PLAYBOOK_PATH: /tmp/semaphore/
-      SEMAPHORE_ADMIN_PASSWORD: changeme
+      SEMAPHORE_ADMIN_PASSWORD_FILE: /run/secrets/admin-pass # Uso do secret para a senha do admin
       SEMAPHORE_ADMIN_NAME: admin
       SEMAPHORE_ADMIN_EMAIL: admin@localhost
       SEMAPHORE_ADMIN: admin
       SEMAPHORE_ACCESS_KEY_ENCRYPTION: gs72mPntFATGJs9qK0pQ0rKtfidlexiMjYCH9gWKhTU=
-      SEMAPHORE_LDAP_ACTIVATED: 'no' # if you wish to use ldap, set to: 'yes' 
+      SEMAPHORE_LDAP_ACTIVATED: 'no' 
       SEMAPHORE_LDAP_HOST: dc01.local.example.com
       SEMAPHORE_LDAP_PORT: '636'
       SEMAPHORE_LDAP_NEEDTLS: 'yes'
@@ -36,7 +44,22 @@ services:
       SEMAPHORE_LDAP_PASSWORD: 'ldap_bind_account_password'
       SEMAPHORE_LDAP_DN_SEARCH: 'dc=local,dc=example,dc=com'
       SEMAPHORE_LDAP_SEARCH_FILTER: "(\u0026(uid=%s)(memberOf=cn=ipausers,cn=groups,cn=accounts,dc=local,dc=example,dc=com))"
+      TZ: UTC
+    networks:
+      - ansible
     depends_on:
-      - mysql # for postgres, change to: postgres
+      - mysql 
+
+networks:
+  ansible:
+        
 volumes:
-  semaphore-mysql: # to use postgres, switch to: semaphore-postgres
+  semaphore-mysql: 
+
+secrets:
+  sql-pass:
+    file: ./sql-pass.txt 
+  admin-pass:
+    file: ./admin-pass.txt 
+  db-pass:
+    file: ./db-pass.txt 
